@@ -2,14 +2,17 @@ version: 2
 
 models:
   - name: stg_customers
+    description: This is a staging version of the source customers table
     columns:
       - name: customer_id
         tests:
           - unique
           - not_null
   - name: stg_orders
+    description: This is a staging version of the source orders table
     columns:
       - name: status
+        description: "{{ doc ('order_statuses') }}"
         tests:
           - accepted_values:
               values:
